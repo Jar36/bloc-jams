@@ -30,7 +30,7 @@ body {
   cursor: pointer;
 }
 
-.navbar .links-continer {
+.navbar .links-container {
   display: table;
   position: absolute;
   top: 0;
