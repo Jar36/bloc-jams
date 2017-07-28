@@ -30,6 +30,22 @@ var albumMarconi = {
     ]
 };
 
+// A Third Example Album
+var albumBloom = {
+    title: 'Bloom',
+    artist: 'Beach House',
+    label: 'EM',
+    year: '2014',
+    albumArtUrl: 'assets/images/album_covers/21.png',
+    songs: [
+        { title: 'Wild', duration: '4:58' },
+        { title: 'Myth', duration: '4:19' },
+        { title: 'Lazuli', duration: '5:01'},
+        { title: 'Other People', duration: '4:25' },
+        { title: 'The Hours', duration: '4:11'}
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -43,12 +59,12 @@ var createSongRow = function(songNumber, songName, songLength) {
  };
 
  var setCurrentAlbum = function(album) {
-      // #1
-      var albumTitle = document.getElementsByClassName('album-view-title')[0];
+      // #1 // Put into global scope for this assignment
+    /*var albumTitle = document.getElementsByClassName('album-view-title')[0];
       var albumArtist = document.getElementsByClassName('album-view-artist')[0];
       var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
       var albumImage = document.getElementsByClassName('album-cover-art')[0];
-      var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+      var albumSongList = document.getElementsByClassName('album-view-song-list')[0];*/
 
       // #2
       albumTitle.firstChild.nodeValue = album.title;
@@ -65,6 +81,23 @@ var createSongRow = function(songNumber, songName, songLength) {
       }
   };
 
+  // vars now in global scope
+  var albumTitle = document.getElementsByClassName('album-view-title')[0];
+  var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+  var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+  var albumImage = document.getElementsByClassName('album-cover-art')[0];
+  var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
   window.onload = function() {
       setCurrentAlbum(albumPicasso);
+      var albums = [albumPicasso, albumMarconi, albumBloom];
+      var index = 1;
+      albumImage.addEventListener('click', function(event){
+        setCurrentAlbum(albums[index]);
+        index++;
+        if(index == albums.length){
+          index=0;
+        }
+      });
+
   };
