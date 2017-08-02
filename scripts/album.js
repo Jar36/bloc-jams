@@ -40,26 +40,6 @@ var createSongRow = function(songNumber, songName, songLength) {
       ;
 
      var $row = $(template);
-<<<<<<< HEAD
-     var onHover = function(event){
-       var songNumberCell = $(this).find('.song-item-number');
-       var songNumber = songNumberCell.attr('data-song-number');
-       if (songNumber !== currentlyPlayingSong){
-         songNumberCell.html(playButtonTemplate);
-       }
-     };
-
-     var offHover = function(event){
-       var songNumberCell = $(this).find('.song-item-number');
-       var songNumber = songNumberCell.attr('data-song-number');
-       if (songNumber !== currentlyPlayingSong){
-           songNumberCell.html(songNumber);
-       }
-     };
-
-     $row.find('.song-item-number').click(clickHandler);
-     $row.hover(onHover, offHover);
-=======
      var clickHandler = function() {
  	     var songNumber = $(this).attr('data-song-number');
 
@@ -101,7 +81,6 @@ var createSongRow = function(songNumber, songName, songLength) {
      // #2
      $row.hover(onHover, offHover);
      // #3
->>>>>>> check-point-18-jquery-play-pause
      return $row;
  };
 
@@ -134,47 +113,12 @@ var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
 var currentlyPlayingSong = null;
 
-<<<<<<< HEAD
-$(document).ready(function)() {
-    setCurrentAlbum(albumPicasso);
-
-    songListContainer.addEventListener('mouseover', function(event){
-      if (event.target.parentElement.className === 'album-view-song-item'){
-        var songItem = getSongItem(event.target);
-=======
 $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
 
->>>>>>> check-point-18-jquery-play-pause
 
 
-<<<<<<< HEAD
-      }
-    });
-
-    for (var i = 0; i < songRows.length; i++){
-      songRows[i].addEventListener('mouseleave', function(event){
-        var songItem = getSongItem(event.target);
-             var songItemNumber = songItem.getAttribute('data-song-number');
-
-             // #2
-             if (songItemNumber !== currentlyPlayingSong) {
-                 songItem.innerHTML = songItemNumber;
-             }
-      });
-
-      songRows[i].addEventListener('click', function(event) {
-           // Event handler call
-            clickHandler(event.target);
-      });
-    }
-});
-
-
-}
-=======
 
 
 
 });
->>>>>>> check-point-18-jquery-play-pause
