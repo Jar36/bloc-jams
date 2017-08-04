@@ -5,7 +5,7 @@ var setSong = function(songNumber) {
     currentlyPlayingSongNumber = parseInt(songNumber);
     currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
 
-    currentSoundFile = new buzz.sound(currentSongFromAlbum.audioUrl, {
+    currentSoundFile = new buzz.sound(currentSongFromAlbum.audio, {
 
         formats: [ 'mp3' ],
         preload: true
@@ -158,7 +158,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
      // Set a new current song
      setSong(currentSongIndex + 1);
-     currentSoundFile.play();             /* Breaks buttons */ /////////////////////////////////////////////////////////////////
+     currentSoundFile.play();  /* Breaks buttons */ /////////////////////////////////////////////////////////////////
      /*currentlyPlayingSongNumber = currentSongIndex + 1;
      currentSongFromAlbum = currentAlbum.songs[currentSongIndex];*/
 
